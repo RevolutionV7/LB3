@@ -1,77 +1,62 @@
 ﻿using System;
-
-namespace Book
+namespace Invoice
 {
-    class Book
+    class Invoice
     {
-        public Book()
+        private readonly int account;
+        private readonly string customer;
+        private readonly string provider;
+        public Invoice(int Account, string Customer, string Provider)
         {
-            Console.Write("Введiть назву книги: ");
-            string t = Console.ReadLine();
+            this.account = Account;
+            this.customer = Customer;
+            this.provider = Provider;
+        }
 
-            Console.Write("Введiть автора книги: ");
-            string a = Console.ReadLine();
+        public string Article { get; set; }
+        public int Quantity { get; set; }
 
-            Console.Write("Введiть змiст книги: ");
-            string c = Console.ReadLine();
 
-            Console.WriteLine();
-            Console.WriteLine("Iнформацiя : ");
+        public double Price()
+        {
+            double price = 680;
+            double sum = 0;
+            if (Quantity > (account / price))
+            {
+                Console.WriteLine("У вас недостатньо грошей на рахунку!");
+            }
+            else if (Article == "так" )
+            {
+                double tax = 1.2;
+                sum = (price * Quantity) * tax;
+                Console.WriteLine($"Ціна з ПДВ = {sum}.");
+            }
+            else if (Article == "ні")
+            {
+                sum = (price * Quantity);
+                Console.WriteLine($"Ціна без ПДВ = {sum}.");
+            }
 
-            Title title = new Title(t);
-            title.Show();
-
-            Author author = new Author(a);
-            author.Show();
-
-            Content content = new Content(c);
-            content.Show();
+            return sum;
         }
     }
-     class Title
-    {
-        private string title;
-        public Title(string title)
-        {
-            this.title = title;
-        }
-        public void Show()
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"Назва: {title}");
-        }
-    }
-     class Author
-    {
-        private string author;
-        public Author(string author)
-        {
-            this.author = author;
-        }
-        public void Show()
-        {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine($"Автор: {author}");
-        }    }
-    class Content
-    {
-        private string content;
-        public Content(string content)
-        {
-            this.content = content;
-        }
-        public void Show()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"Змiст: {content}");
-        }
-    }
-    class Program
+
+    internal class Program
     {
         static void Main(string[] args)
         {
-            Book book = new Book();
-            Console.ResetColor();
+            Console.WriteLine("Ви бажаєте отримати розрахунок з врахуванням ПДВ?");
+            Console.WriteLine("Так чи нi? ");
+          
+            Invoice invoice = new Invoice(37550, "Cосновський Дмитро", "Prom.ua");
+            string article = Console.ReadLine();
+            invoice.Article = article;
+
+            Console.Write("Введiть кiлькiсть товару: ");
+            int quantity = Convert.ToInt32(Console.ReadLine());
+            invoice.Quantity = quantity;
+
+            invoice.Price();
             Console.ReadKey();
         }
     }
