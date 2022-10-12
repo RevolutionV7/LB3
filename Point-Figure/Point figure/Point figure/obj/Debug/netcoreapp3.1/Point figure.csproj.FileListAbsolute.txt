@@ -1,0 +1,5 @@
+D:\Sosnovskiy\ООП\LB3\Point-Figure\Point figure\Point figure\obj\Debug\netcoreapp3.1\Point figure.csproj.AssemblyReference.cache
+D:\Sosnovskiy\ООП\LB3\Point-Figure\Point figure\Point figure\obj\Debug\netcoreapp3.1\Point figure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Sosnovskiy\ООП\LB3\Point-Figure\Point figure\Point figure\obj\Debug\netcoreapp3.1\Point figure.AssemblyInfoInputs.cache
+D:\Sosnovskiy\ООП\LB3\Point-Figure\Point figure\Point figure\obj\Debug\netcoreapp3.1\Point figure.AssemblyInfo.cs
+D:\Sosnovskiy\ООП\LB3\Point-Figure\Point figure\Point figure\obj\Debug\netcoreapp3.1\Point figure.csproj.CoreCompileInputs.cache
